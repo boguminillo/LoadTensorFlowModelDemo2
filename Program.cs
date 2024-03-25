@@ -52,7 +52,8 @@ static (DataFrame, DataFrame) GetData()
     DataFrame rawData = DataFrame.LoadCsv("C:\\Users\\admnoraybio\\Source\\Repos\\LoadTensorFlowModelDemo2\\data\\auto-mpg.csv",
         header: false,
         columnNames: names,
-        dataTypes: [typeof(float), typeof(float), typeof(float), typeof(float), typeof(float), typeof(float), typeof(float), typeof(int), typeof(string)]);
+        dataTypes: [typeof(float), typeof(float), typeof(float), typeof(float), typeof(float), typeof(float), typeof(float), typeof(int), typeof(string)],
+        cultureInfo: System.Globalization.CultureInfo.InvariantCulture);
 
     DataFrame labels = new DataFrame(rawData.Columns["MPG"], rawData.Columns["Acceleration"]);
     rawData.Columns.Remove("MPG");
